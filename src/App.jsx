@@ -5,6 +5,7 @@ import Footer from "./components/Footer";
 import IsPrivate from "./components/IsPrivate";
 import IsAnon from "./components/IsAnon";
 
+import HomePage from "./pages/HomePage";
 import SignupPage from "./pages/SignupPage";
 import LoginPage from "./pages/LoginPage";
 import NotFoundPage from "./pages/NotFoundPage";
@@ -16,6 +17,8 @@ function App() {
 
       <main className="app-content">
         <Routes>
+          <Route path="/" element={<HomePage />} />
+
           <Route
             path="/signup"
             element={
