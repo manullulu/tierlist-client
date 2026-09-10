@@ -1,14 +1,39 @@
 import { Routes, Route } from "react-router-dom";
 
+import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import IsPrivate from "./components/IsPrivate";
+import IsAnon from "./components/IsAnon";
 
+import SignupPage from "./pages/SignupPage";
+import LoginPage from "./pages/LoginPage";
 import NotFoundPage from "./pages/NotFoundPage";
 
 function App() {
   return (
     <div className="app">
+      <Navbar />
+
       <main className="app-content">
         <Routes>
+          <Route
+            path="/signup"
+            element={
+              <IsAnon>
+                <SignupPage />
+              </IsAnon>
+            }
+          />
+
+          <Route
+            path="/login"
+            element={
+              <IsAnon>
+                <LoginPage />
+              </IsAnon>
+            }
+          />
+
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </main>
