@@ -6,6 +6,7 @@ import IsPrivate from "./components/IsPrivate";
 import IsAnon from "./components/IsAnon";
 
 import HomePage from "./pages/HomePage";
+import TierListDetailPage from "./pages/TierListDetailPage";
 import SignupPage from "./pages/SignupPage";
 import LoginPage from "./pages/LoginPage";
 import NotFoundPage from "./pages/NotFoundPage";
@@ -18,6 +19,8 @@ function App() {
       <main className="app-content">
         <Routes>
           <Route path="/" element={<HomePage />} />
+
+          <Route path="/tierlists/:id" element={<TierListDetailPage />} />
 
           <Route
             path="/signup"
