@@ -7,6 +7,7 @@ import IsAnon from "./components/IsAnon";
 
 import HomePage from "./pages/HomePage";
 import TierListDetailPage from "./pages/TierListDetailPage";
+import CreateTierListPage from "./pages/CreateTierListPage";
 import SignupPage from "./pages/SignupPage";
 import LoginPage from "./pages/LoginPage";
 import NotFoundPage from "./pages/NotFoundPage";
@@ -21,6 +22,15 @@ function App() {
           <Route path="/" element={<HomePage />} />
 
           <Route path="/tierlists/:id" element={<TierListDetailPage />} />
+
+          <Route
+            path="/create"
+            element={
+              <IsPrivate>
+                <CreateTierListPage />
+              </IsPrivate>
+            }
+          />
 
           <Route
             path="/signup"
