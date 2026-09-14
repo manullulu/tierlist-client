@@ -8,6 +8,7 @@ import IsAnon from "./components/IsAnon";
 import HomePage from "./pages/HomePage";
 import TierListDetailPage from "./pages/TierListDetailPage";
 import CreateTierListPage from "./pages/CreateTierListPage";
+import EditTierListPage from "./pages/EditTierListPage";
 import SignupPage from "./pages/SignupPage";
 import LoginPage from "./pages/LoginPage";
 import NotFoundPage from "./pages/NotFoundPage";
@@ -28,6 +29,15 @@ function App() {
             element={
               <IsPrivate>
                 <CreateTierListPage />
+              </IsPrivate>
+            }
+          />
+
+          <Route
+            path="/tierlists/:id/edit"
+            element={
+              <IsPrivate>
+                <EditTierListPage />
               </IsPrivate>
             }
           />
