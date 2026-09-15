@@ -405,3 +405,672 @@ select:focus {
 .settings-form {
   margin-bottom: 1.5rem;
 }
+
+/* ==========================================================
+   Page d'accueil
+   ========================================================== */
+
+.hero {
+  text-align: center;
+  padding: 2.5rem 1rem 2rem;
+}
+
+.hero h1 {
+  font-size: 2.4rem;
+  background: linear-gradient(90deg, #ff7f7f, #ffdf7f, #7fff7f);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.hero p {
+  color: var(--text-muted);
+  max-width: 560px;
+  margin: 0.75rem auto 1.5rem;
+}
+
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin: 1rem 0 1.5rem;
+}
+
+.search-form {
+  display: flex;
+  gap: 0.5rem;
+  flex: 1;
+  min-width: 240px;
+  max-width: 480px;
+}
+
+.sort-select {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-muted);
+}
+
+.sort-select select {
+  width: auto;
+}
+
+/* ==========================================================
+   Cartes de tier lists
+   ========================================================== */
+
+.tierlist-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+  gap: 1.25rem;
+}
+
+.tierlist-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.tierlist-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow);
+}
+
+.tierlist-card-preview {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  height: 110px;
+  background: var(--bg-elevated);
+}
+
+.tierlist-card-preview-item img,
+.tierlist-card-preview-item .game-no-image {
+  width: 100%;
+  height: 110px;
+  object-fit: cover;
+}
+
+.tierlist-card-empty {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.tierlist-card-body {
+  padding: 0.9rem 1rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  flex: 1;
+}
+
+.tierlist-card-title {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--text);
+}
+
+.tierlist-card-description {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.tierlist-card-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-top: auto;
+}
+
+.tierlist-card-owner {
+  font-weight: 600;
+}
+
+.tierlist-card-stats {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+
+.tierlist-card-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.tierlist-card-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.15rem 0.55rem;
+  border-radius: 999px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.badge-positive {
+  color: var(--success);
+  border-color: rgba(74, 222, 128, 0.4);
+}
+
+.badge-negative {
+  color: var(--danger);
+  border-color: rgba(239, 91, 106, 0.4);
+}
+
+.badge-private {
+  color: #fbbf24;
+  border-color: rgba(251, 191, 36, 0.4);
+  margin-left: 0.5rem;
+}
+
+.badge-admin {
+  color: var(--primary);
+  border-color: rgba(124, 92, 255, 0.5);
+  margin-left: 0.5rem;
+}
+
+/* ==========================================================
+   Page de détail et éditeur
+   ========================================================== */
+
+.detail-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+
+.detail-description {
+  color: var(--text-muted);
+  max-width: 640px;
+  margin: 0.25rem 0;
+}
+
+.detail-meta {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin: 0.25rem 0 0;
+}
+
+.detail-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.75rem;
+}
+
+.editor-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(300px, 1fr);
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.editor-search {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1rem;
+  position: sticky;
+  top: 80px;
+  max-height: calc(100vh - 100px);
+  overflow-y: auto;
+}
+
+.editor-search h2 {
+  margin-top: 0;
+}
+
+.editor-search .search-form {
+  max-width: none;
+  margin-bottom: 1rem;
+}
+
+/* ---------- Le tableau de tiers ---------- */
+
+.tier-board,
+.editor-board {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.tier-row {
+  display: flex;
+  min-height: 96px;
+  background: var(--bg-card);
+}
+
+.tier-label {
+  flex: 0 0 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #1a1a1a;
+  text-align: center;
+  padding: 0.5rem;
+  word-break: break-word;
+}
+
+.tier-items {
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 8px;
+  align-items: flex-start;
+}
+
+.tier-empty {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  align-self: center;
+  padding-left: 0.25rem;
+}
+
+/* ---------- Une tuile de jeu dans le tableau ---------- */
+
+.game-tile {
+  width: 96px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.game-tile-image {
+  width: 96px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 6px;
+  background: var(--bg-elevated);
+}
+
+.game-no-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  padding: 0.25rem;
+  background: var(--bg-elevated);
+}
+
+.game-tile-name {
+  font-size: 0.75rem;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.game-tile-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.game-tile-actions select {
+  padding: 0.2rem 0.3rem;
+  font-size: 0.75rem;
+  border-radius: 6px;
+}
+
+.game-tile-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* ---------- Résultats de recherche RAWG ---------- */
+
+.game-results {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.game-card {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.5rem;
+}
+
+.game-card-image {
+  width: 64px;
+  height: 48px;
+  object-fit: cover;
+  border-radius: 6px;
+  flex-shrink: 0;
+}
+
+.game-card-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.game-card-name {
+  font-weight: 600;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.game-card-meta {
+  display: flex;
+  gap: 0.6rem;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+/* ==========================================================
+   Votes
+   ========================================================== */
+
+.vote-buttons {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.btn-vote {
+  padding: 0.45rem 0.85rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--bg-elevated);
+  color: var(--text);
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.btn-vote:hover {
+  border-color: var(--text-muted);
+}
+
+.btn-vote-active-up {
+  background: rgba(74, 222, 128, 0.15);
+  border-color: var(--success);
+}
+
+.btn-vote-active-down {
+  background: rgba(239, 91, 106, 0.15);
+  border-color: var(--danger);
+}
+
+.vote-score {
+  font-weight: 800;
+  font-size: 1.1rem;
+  min-width: 2.5rem;
+  text-align: center;
+}
+
+.vote-buttons .error-message {
+  margin: 0;
+  padding: 0.3rem 0.6rem;
+  font-size: 0.8rem;
+}
+
+/* ==========================================================
+   Commentaires
+   ========================================================== */
+
+.comments-section {
+  margin-top: 2.5rem;
+  max-width: 760px;
+}
+
+.comment-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.comment-form-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.char-count {
+  color: var(--text-muted);
+  font-size: 0.8rem;
+}
+
+.comment {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0.9rem 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.comment-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.4rem;
+}
+
+.comment-author {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+}
+
+.comment-date {
+  color: var(--text-muted);
+  font-size: 0.8rem;
+}
+
+.comment-content {
+  margin: 0;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.comment-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.comment-edit-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* ==========================================================
+   Profils
+   ========================================================== */
+
+.profile-header {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.profile-header .btn {
+  margin-left: auto;
+}
+
+.avatar {
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.avatar-small {
+  width: 28px;
+  height: 28px;
+}
+
+.avatar-large {
+  width: 80px;
+  height: 80px;
+}
+
+.avatar-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--primary);
+  color: white;
+  font-weight: 700;
+}
+
+.avatar-large.avatar-placeholder {
+  font-size: 2rem;
+}
+
+/* ==========================================================
+   404
+   ========================================================== */
+
+.not-found {
+  text-align: center;
+  padding-top: 4rem;
+}
+
+.not-found h1 {
+  font-size: 5rem;
+  color: var(--primary);
+}
+
+.not-found p {
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+}
+
+/* ==========================================================
+   Responsive
+   ========================================================== */
+
+@media (max-width: 900px) {
+  .editor-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .editor-search {
+    position: static;
+    max-height: none;
+  }
+
+  .detail-actions {
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 600px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .page {
+    padding: 1.25rem 0.9rem 2rem;
+  }
+
+  h1 {
+    font-size: 1.6rem;
+  }
+
+  .hero h1 {
+    font-size: 1.9rem;
+  }
+
+  .tier-label {
+    flex-basis: 56px;
+    font-size: 1.1rem;
+  }
+
+  .game-tile,
+  .game-tile-image {
+    width: 80px;
+  }
+
+  .game-tile-image {
+    height: 66px;
+  }
+
+  .profile-header .btn {
+    margin-left: 0;
+  }
+}
+
+/* ==========================================================
+   Glisser-déposer (dnd-kit) dans l'éditeur
+   ========================================================== */
+
+/* La poignée : on attrape la tuile par son image et son nom */
+.game-tile-handle {
+  cursor: grab;
+  touch-action: none;
+  border-radius: 6px;
+}
+
+.game-tile-handle:active {
+  cursor: grabbing;
+}
+
+.game-tile-handle:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* La tuile en cours de glissement passe au-dessus des autres */
+.game-tile-dragging {
+  position: relative;
+  z-index: 20;
+  opacity: 0.9;
+  filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.5));
+}
+
+/* La ligne survolée pendant un glissement */
+.tier-items {
+  transition: background 0.15s;
+}
+
+.tier-items-over {
+  background: rgba(124, 92, 255, 0.18);
+  outline: 2px dashed var(--primary);
+  outline-offset: -4px;
+}
