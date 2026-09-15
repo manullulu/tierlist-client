@@ -9,6 +9,8 @@ import HomePage from "./pages/HomePage";
 import TierListDetailPage from "./pages/TierListDetailPage";
 import CreateTierListPage from "./pages/CreateTierListPage";
 import EditTierListPage from "./pages/EditTierListPage";
+import ProfilePage from "./pages/ProfilePage";
+import UserProfilePage from "./pages/UserProfilePage";
 import SignupPage from "./pages/SignupPage";
 import LoginPage from "./pages/LoginPage";
 import NotFoundPage from "./pages/NotFoundPage";
@@ -41,6 +43,17 @@ function App() {
               </IsPrivate>
             }
           />
+
+          <Route
+            path="/profile"
+            element={
+              <IsPrivate>
+                <ProfilePage />
+              </IsPrivate>
+            }
+          />
+
+          <Route path="/users/:id" element={<UserProfilePage />} />
 
           <Route
             path="/signup"
