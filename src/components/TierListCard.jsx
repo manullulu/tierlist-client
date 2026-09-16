@@ -8,6 +8,12 @@ function TierListCard(props) {
 
   return (
     <article className="tierlist-card">
+      <div className="tierlist-card-colors">
+        {tierList.tiers.map((tier) => {
+          return <span key={tier.label} style={{ backgroundColor: tier.color }}></span>;
+        })}
+      </div>
+
       <Link to={"/tierlists/" + tierList._id} className="tierlist-card-preview">
         {tierList.previewItems.length === 0 && (
           <div className="tierlist-card-empty">Aucun jeu pour l'instant</div>

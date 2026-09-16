@@ -8,7 +8,6 @@ function Navbar() {
   return (
     <nav className="navbar">
       <Link to="/" className="navbar-logo">
-        <span className="navbar-logo-badge">S</span>
         TierList
       </Link>
 
