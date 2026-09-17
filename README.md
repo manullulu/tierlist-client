@@ -5,7 +5,8 @@ Stack : React 19, Vite, React Router, Axios, dnd-kit. CSS pur, sans framework.
 
 L'API est dans le repo `tierlist-server`.
 
-**Démo :** https://tierlist-client.vercel.app (déployé automatiquement à chaque push sur `main`)
+**Démo :** https://tierlist-client.vercel.app (Vercel, déployé automatiquement à chaque push sur `main`)
+**API :** https://tierlist-server.onrender.com (Render)
 
 ## Installation
 
