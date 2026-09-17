@@ -6,6 +6,7 @@ import { getComments, addComment, updateComment, deleteComment } from "../api/co
 import TierRow from "../components/TierRow";
 import VoteButtons from "../components/VoteButtons";
 import CommentItem from "../components/CommentItem";
+import Spinner from "../components/Spinner";
 
 function TierListDetailPage() {
   const { id } = useParams();
@@ -113,7 +114,7 @@ function TierListDetailPage() {
   };
 
   if (isLoading) {
-    return <p className="loading">Loading...</p>;
+    return <Spinner />;
   }
 
   if (errorMessage) {

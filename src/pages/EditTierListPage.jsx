@@ -7,6 +7,7 @@ import { addItem, updateItem, deleteItem } from "../api/items.api";
 import { searchGames } from "../api/games.api";
 import EditorTierRow from "../components/EditorTierRow";
 import GameCard from "../components/GameCard";
+import Spinner from "../components/Spinner";
 
 // L'éditeur : recherche de jeux via RAWG + placement dans les rangs
 // par glisser-déposer (dnd-kit) ou avec les menus déroulants et les boutons.
@@ -314,7 +315,7 @@ function EditTierListPage() {
   // ---------- Affichage ----------
 
   if (isLoading) {
-    return <p className="loading">Loading...</p>;
+    return <Spinner />;
   }
 
   if (errorMessage && !tierList) {

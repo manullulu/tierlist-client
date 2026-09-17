@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../context/auth.context";
 import { getUserTierLists, deleteTierList } from "../api/tierlists.api";
 import TierListCard from "../components/TierListCard";
+import Spinner from "../components/Spinner";
 
 // Mes tier lists (publiques et privées), avec les boutons de gestion
 function ProfilePage() {
@@ -47,7 +48,7 @@ function ProfilePage() {
   };
 
   if (!user) {
-    return <p className="loading">Loading...</p>;
+    return <Spinner />;
   }
 
   return (
@@ -74,7 +75,7 @@ function ProfilePage() {
 
       <h2>My tier lists ({tierLists.length})</h2>
 
-      {isLoading && <p className="loading">Loading...</p>}
+      {isLoading && <Spinner />}
 
       {errorMessage && <p className="error-message">{errorMessage}</p>}
 

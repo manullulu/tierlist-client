@@ -3,6 +3,7 @@ import { useParams, Link } from "react-router-dom";
 import { getUser } from "../api/users.api";
 import { getUserTierLists } from "../api/tierlists.api";
 import TierListCard from "../components/TierListCard";
+import Spinner from "../components/Spinner";
 
 // Le profil public d'un utilisateur : ses tier lists publiques
 function UserProfilePage() {
@@ -37,7 +38,7 @@ function UserProfilePage() {
   }, [id]);
 
   if (isLoading) {
-    return <p className="loading">Loading...</p>;
+    return <Spinner />;
   }
 
   if (errorMessage) {

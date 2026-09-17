@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { getAllTierLists } from "../api/tierlists.api";
 import TierListCard from "../components/TierListCard";
+import Spinner from "../components/Spinner";
 
 function HomePage() {
   const [tierLists, setTierLists] = useState([]);
@@ -71,7 +72,7 @@ function HomePage() {
         </label>
       </section>
 
-      {isLoading && <p className="loading">Loading...</p>}
+      {isLoading && <Spinner />}
 
       {errorMessage && <p className="error-message">{errorMessage}</p>}
 
