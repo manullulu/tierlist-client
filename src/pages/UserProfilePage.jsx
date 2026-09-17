@@ -30,14 +30,14 @@ function UserProfilePage() {
         if (error.response && error.response.data.message) {
           setErrorMessage(error.response.data.message);
         } else {
-          setErrorMessage("Impossible de charger ce profil.");
+          setErrorMessage("Could not load this profile.");
         }
         setIsLoading(false);
       });
   }, [id]);
 
   if (isLoading) {
-    return <p className="loading">Chargement...</p>;
+    return <p className="loading">Loading...</p>;
   }
 
   if (errorMessage) {
@@ -45,13 +45,13 @@ function UserProfilePage() {
       <div className="page">
         <p className="error-message">{errorMessage}</p>
         <Link to="/" className="btn btn-secondary">
-          Retour à l'accueil
+          Back to home
         </Link>
       </div>
     );
   }
 
-  const memberSince = new Date(profile.createdAt).toLocaleDateString("fr-FR");
+  const memberSince = new Date(profile.createdAt).toLocaleDateString("en-US");
 
   return (
     <div className="page">
@@ -67,15 +67,15 @@ function UserProfilePage() {
         <div>
           <h1>{profile.name}</h1>
           <p className="detail-meta">
-            Membre depuis le {memberSince}
+            Member since {memberSince}
             {profile.role === "admin" && <span className="badge badge-admin">Admin</span>}
           </p>
         </div>
       </header>
 
-      <h2>Ses tier lists ({tierLists.length})</h2>
+      <h2>Tier lists ({tierLists.length})</h2>
 
-      {tierLists.length === 0 && <p className="empty-state">Aucune tier list publique.</p>}
+      {tierLists.length === 0 && <p className="empty-state">No public tier list.</p>}
 
       <div className="tierlist-grid">
         {tierLists.map((tierList) => {

@@ -21,7 +21,7 @@ function HomePage() {
       })
       .catch((error) => {
         console.log(error);
-        setErrorMessage("Impossible de charger les tier lists.");
+        setErrorMessage("Could not load the tier lists.");
         setIsLoading(false);
       });
   };
@@ -39,13 +39,13 @@ function HomePage() {
   return (
     <div className="page">
       <section className="hero">
-        <h1>Classe tes jeux vidéo préférés</h1>
+        <h1>Rank your favorite video games</h1>
         <p>
-          Crée ta tier list, place tes jeux de S à F, partage-la et vote pour les classements
-          des autres joueurs.
+          Create your tier list, place your games from S to F, share it and vote for the
+          rankings of other players.
         </p>
         <Link to="/create" className="btn btn-primary">
-          Créer ma tier list
+          Create my tier list
         </Link>
       </section>
 
@@ -53,30 +53,30 @@ function HomePage() {
         <form onSubmit={handleSearchSubmit} className="search-form">
           <input
             type="text"
-            placeholder="Rechercher une tier list..."
+            placeholder="Search a tier list..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
           />
           <button type="submit" className="btn btn-secondary">
-            Rechercher
+            Search
           </button>
         </form>
 
         <label className="sort-select">
-          Trier par
+          Sort by
           <select value={sort} onChange={(e) => setSort(e.target.value)}>
-            <option value="recent">Plus récentes</option>
-            <option value="popular">Plus populaires</option>
+            <option value="recent">Newest</option>
+            <option value="popular">Most popular</option>
           </select>
         </label>
       </section>
 
-      {isLoading && <p className="loading">Chargement...</p>}
+      {isLoading && <p className="loading">Loading...</p>}
 
       {errorMessage && <p className="error-message">{errorMessage}</p>}
 
       {!isLoading && !errorMessage && tierLists.length === 0 && (
-        <p className="empty-state">Aucune tier list trouvée. Sois le premier à en créer une !</p>
+        <p className="empty-state">No tier list found. Be the first to create one!</p>
       )}
 
       <div className="tierlist-grid">

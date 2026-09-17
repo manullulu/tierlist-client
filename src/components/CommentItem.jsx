@@ -23,7 +23,7 @@ function CommentItem(props) {
     }
   }
 
-  const date = new Date(comment.createdAt).toLocaleString("fr-FR");
+  const date = new Date(comment.createdAt).toLocaleString("en-US");
 
   const handleSave = (e) => {
     e.preventDefault();
@@ -65,10 +65,10 @@ function CommentItem(props) {
           />
           <div className="form-actions">
             <button type="submit" className="btn btn-primary btn-small">
-              Enregistrer
+              Save
             </button>
             <button type="button" className="btn btn-secondary btn-small" onClick={handleCancel}>
-              Annuler
+              Cancel
             </button>
           </div>
         </form>
@@ -78,7 +78,7 @@ function CommentItem(props) {
         <div className="comment-actions">
           {isAuthor && (
             <button type="button" className="btn-link" onClick={() => setIsEditing(true)}>
-              Modifier
+              Edit
             </button>
           )}
           <button
@@ -86,7 +86,7 @@ function CommentItem(props) {
             className="btn-link btn-link-danger"
             onClick={() => props.onDelete(comment._id)}
           >
-            Supprimer
+            Delete
           </button>
         </div>
       )}

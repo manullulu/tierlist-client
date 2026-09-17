@@ -4,9 +4,9 @@ function NotFoundPage() {
   return (
     <div className="page page-narrow not-found">
       <h1>404</h1>
-      <p>Cette page n'existe pas... elle est classée F.</p>
+      <p>This page does not exist... it is ranked F.</p>
       <Link to="/" className="btn btn-primary">
-        Retour à l'accueil
+        Back to home
       </Link>
     </div>
   );

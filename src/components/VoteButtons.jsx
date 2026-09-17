@@ -34,7 +34,7 @@ function VoteButtons(props) {
           setMyVote(response.data.myVote);
         })
         .catch((error) => {
-          setErrorMessage(error.response ? error.response.data.message : "Erreur lors du vote.");
+          setErrorMessage(error.response ? error.response.data.message : "The vote failed.");
         });
       return;
     }
@@ -47,7 +47,7 @@ function VoteButtons(props) {
         setMyVote(response.data.myVote);
       })
       .catch((error) => {
-        setErrorMessage(error.response ? error.response.data.message : "Erreur lors du vote.");
+        setErrorMessage(error.response ? error.response.data.message : "The vote failed.");
       });
   };
 
@@ -57,7 +57,7 @@ function VoteButtons(props) {
         type="button"
         className={myVote === 1 ? "btn-vote btn-vote-active-up" : "btn-vote"}
         onClick={() => handleVote(1)}
-        title="Ce classement est juste"
+        title="This ranking is fair"
       >
         👍 {upvotes}
       </button>
@@ -68,7 +68,7 @@ function VoteButtons(props) {
         type="button"
         className={myVote === -1 ? "btn-vote btn-vote-active-down" : "btn-vote"}
         onClick={() => handleVote(-1)}
-        title="Pas d'accord avec ce classement"
+        title="Disagree with this ranking"
       >
         👎 {downvotes}
       </button>

@@ -41,12 +41,12 @@ function CreateTierListPage() {
   };
 
   const handleAddTier = () => {
-    setTiers([...tiers, { label: "Nouveau", color: "#cccccc" }]);
+    setTiers([...tiers, { label: "New", color: "#cccccc" }]);
   };
 
   const handleRemoveTier = (index) => {
     if (tiers.length <= 2) {
-      setErrorMessage("Il faut au moins deux rangs.");
+      setErrorMessage("You need at least two ranks.");
       return;
     }
     const remainingTiers = tiers.filter((tier, i) => i !== index);
@@ -62,11 +62,11 @@ function CreateTierListPage() {
     for (let i = 0; i < tiers.length; i++) {
       const label = tiers[i].label.trim();
       if (label === "") {
-        setErrorMessage("Chaque rang doit avoir un nom.");
+        setErrorMessage("Each rank needs a name.");
         return;
       }
       if (labels.includes(label)) {
-        setErrorMessage("Deux rangs ne peuvent pas avoir le même nom.");
+        setErrorMessage("Two ranks cannot have the same name.");
         return;
       }
       labels.push(label);
@@ -81,34 +81,34 @@ function CreateTierListPage() {
         if (error.response && error.response.data.message) {
           setErrorMessage(error.response.data.message);
         } else {
-          setErrorMessage("La création a échoué.");
+          setErrorMessage("Creating the tier list failed.");
         }
       });
   };
 
   return (
     <div className="page page-narrow">
-      <h1>Nouvelle tier list</h1>
+      <h1>New tier list</h1>
 
       <form onSubmit={handleSubmit} className="form">
         <label>
-          Titre
+          Title
           <input
             type="text"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
-            placeholder="Les meilleurs RPG, Les Zelda classés..."
+            placeholder="Best RPGs, Zelda games ranked..."
             maxLength={100}
             required
           />
         </label>
 
         <label>
-          Description (facultatif)
+          Description (optional)
           <textarea
             value={description}
             onChange={(e) => setDescription(e.target.value)}
-            placeholder="Explique ton classement en quelques mots"
+            placeholder="Explain your ranking in a few words"
             maxLength={500}
             rows={3}
           />
@@ -116,11 +116,11 @@ function CreateTierListPage() {
 
         <label className="checkbox-label">
           <input type="checkbox" checked={isPublic} onChange={(e) => setIsPublic(e.target.checked)} />
-          Rendre cette tier list publique
+          Make this tier list public
         </label>
 
         <fieldset className="tiers-editor">
-          <legend>Les rangs</legend>
+          <legend>Ranks</legend>
 
           {tiers.map((tier, index) => {
             return (
@@ -129,7 +129,7 @@ function CreateTierListPage() {
                   type="color"
                   value={tier.color}
                   onChange={(e) => handleTierColorChange(index, e.target.value)}
-                  title="Couleur du rang"
+                  title="Rank color"
                 />
                 <input
                   type="text"
@@ -142,7 +142,7 @@ function CreateTierListPage() {
                   type="button"
                   className="btn-icon btn-icon-danger"
                   onClick={() => handleRemoveTier(index)}
-                  title="Supprimer ce rang"
+                  title="Delete this rank"
                 >
                   ✕
                 </button>
@@ -151,14 +151,14 @@ function CreateTierListPage() {
           })}
 
           <button type="button" className="btn btn-secondary btn-small" onClick={handleAddTier}>
-            + Ajouter un rang
+            + Add a rank
           </button>
         </fieldset>
 
         {errorMessage && <p className="error-message">{errorMessage}</p>}
 
         <button type="submit" className="btn btn-primary">
-          Créer et ajouter des jeux
+          Create and add games
         </button>
       </form>
     </div>

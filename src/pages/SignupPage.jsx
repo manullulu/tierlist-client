@@ -24,18 +24,18 @@ function SignupPage() {
         if (error.response && error.response.data.message) {
           setErrorMessage(error.response.data.message);
         } else {
-          setErrorMessage("L'inscription a échoué.");
+          setErrorMessage("Signing up failed.");
         }
       });
   };
 
   return (
     <div className="page page-narrow">
-      <h1>Inscription</h1>
+      <h1>Sign up</h1>
 
       <form onSubmit={handleSubmit} className="form">
         <label>
-          Nom
+          Name
           <input type="text" value={name} onChange={(e) => setName(e.target.value)} required />
         </label>
 
@@ -45,7 +45,7 @@ function SignupPage() {
         </label>
 
         <label>
-          Mot de passe
+          Password
           <input
             type="password"
             value={password}
@@ -56,7 +56,7 @@ function SignupPage() {
         </label>
 
         <label>
-          Avatar (URL d'une image, facultatif)
+          Avatar (image URL, optional)
           <input
             type="url"
             value={avatar}
@@ -68,12 +68,12 @@ function SignupPage() {
         {errorMessage && <p className="error-message">{errorMessage}</p>}
 
         <button type="submit" className="btn btn-primary">
-          Créer mon compte
+          Create my account
         </button>
       </form>
 
       <p className="form-footer">
-        Déjà un compte ? <Link to="/login">Connexion</Link>
+        Already have an account? <Link to="/login">Log in</Link>
       </p>
     </div>
   );

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 function TierListCard(props) {
   const tierList = props.tierList;
 
-  const date = new Date(tierList.createdAt).toLocaleDateString("fr-FR");
+  const date = new Date(tierList.createdAt).toLocaleDateString("en-US");
 
   return (
     <article className="tierlist-card">
@@ -16,7 +16,7 @@ function TierListCard(props) {
 
       <Link to={"/tierlists/" + tierList._id} className="tierlist-card-preview">
         {tierList.previewItems.length === 0 && (
-          <div className="tierlist-card-empty">Aucun jeu pour l'instant</div>
+          <div className="tierlist-card-empty">No games yet</div>
         )}
 
         {tierList.previewItems.map((item) => {
@@ -43,7 +43,7 @@ function TierListCard(props) {
 
         <div className="tierlist-card-meta">
           <span>
-            par{" "}
+            by{" "}
             <Link to={"/users/" + tierList.owner._id} className="tierlist-card-owner">
               {tierList.owner.name}
             </Link>
@@ -52,11 +52,11 @@ function TierListCard(props) {
         </div>
 
         <div className="tierlist-card-stats">
-          <span className="badge">{tierList.itemsCount} jeux</span>
+          <span className="badge">{tierList.itemsCount} games</span>
           <span className={tierList.score >= 0 ? "badge badge-positive" : "badge badge-negative"}>
             {tierList.score > 0 ? "+" + tierList.score : tierList.score} votes
           </span>
-          {!tierList.isPublic && <span className="badge badge-private">Privée</span>}
+          {!tierList.isPublic && <span className="badge badge-private">Private</span>}
         </div>
       </div>
     </article>

@@ -12,7 +12,7 @@ function TierRow(props) {
       </div>
 
       <div className="tier-items">
-        {items.length === 0 && <span className="tier-empty">Aucun jeu</span>}
+        {items.length === 0 && <span className="tier-empty">No games</span>}
 
         {items.map((item) => {
           return (

@@ -26,14 +26,14 @@ function LoginPage() {
         if (error.response && error.response.data.message) {
           setErrorMessage(error.response.data.message);
         } else {
-          setErrorMessage("La connexion a échoué.");
+          setErrorMessage("Logging in failed.");
         }
       });
   };
 
   return (
     <div className="page page-narrow">
-      <h1>Connexion</h1>
+      <h1>Log in</h1>
 
       <form onSubmit={handleSubmit} className="form">
         <label>
@@ -42,7 +42,7 @@ function LoginPage() {
         </label>
 
         <label>
-          Mot de passe
+          Password
           <input
             type="password"
             value={password}
@@ -54,12 +54,12 @@ function LoginPage() {
         {errorMessage && <p className="error-message">{errorMessage}</p>}
 
         <button type="submit" className="btn btn-primary">
-          Se connecter
+          Log in
         </button>
       </form>
 
       <p className="form-footer">
-        Pas encore de compte ? <Link to="/signup">Inscription</Link>
+        No account yet? <Link to="/signup">Sign up</Link>
       </p>
     </div>
   );

@@ -28,7 +28,7 @@ function EditorTierRow(props) {
       </div>
 
       <div ref={setNodeRef} className={className}>
-        {items.length === 0 && <span className="tier-empty">Glisse un jeu ici</span>}
+        {items.length === 0 && <span className="tier-empty">Drop a game here</span>}
 
         {items.map((item, index) => {
           return (

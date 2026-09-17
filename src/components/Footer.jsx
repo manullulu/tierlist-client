@@ -2,7 +2,7 @@ function Footer() {
   return (
     <footer className="footer">
       <p>
-        TierList - Projet final Ironhack. Données des jeux fournies par{" "}
+        TierList - Ironhack final project. Game data provided by{" "}
         <a href="https://rawg.io" target="_blank" rel="noreferrer">
           RAWG
         </a>

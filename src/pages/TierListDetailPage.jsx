@@ -29,7 +29,7 @@ function TierListDetailPage() {
         if (error.response && error.response.data.message) {
           setErrorMessage(error.response.data.message);
         } else {
-          setErrorMessage("Impossible de charger cette tier list.");
+          setErrorMessage("Could not load this tier list.");
         }
         setIsLoading(false);
       });
@@ -44,7 +44,7 @@ function TierListDetailPage() {
   }, [id]);
 
   const handleDeleteTierList = () => {
-    const confirmed = window.confirm("Supprimer définitivement cette tier list ?");
+    const confirmed = window.confirm("Delete this tier list permanently?");
     if (!confirmed) {
       return;
     }
@@ -55,7 +55,7 @@ function TierListDetailPage() {
       })
       .catch((error) => {
         console.log(error);
-        setErrorMessage("La suppression a échoué.");
+        setErrorMessage("Deleting failed.");
       });
   };
 
@@ -73,7 +73,7 @@ function TierListDetailPage() {
         if (error.response && error.response.data.message) {
           setCommentError(error.response.data.message);
         } else {
-          setCommentError("Impossible d'ajouter le commentaire.");
+          setCommentError("Could not add the comment.");
         }
       });
   };
@@ -91,12 +91,12 @@ function TierListDetailPage() {
       })
       .catch((error) => {
         console.log(error);
-        setCommentError("La modification du commentaire a échoué.");
+        setCommentError("Editing the comment failed.");
       });
   };
 
   const handleDeleteComment = (commentId) => {
-    const confirmed = window.confirm("Supprimer ce commentaire ?");
+    const confirmed = window.confirm("Delete this comment?");
     if (!confirmed) {
       return;
     }
@@ -108,12 +108,12 @@ function TierListDetailPage() {
       })
       .catch((error) => {
         console.log(error);
-        setCommentError("La suppression du commentaire a échoué.");
+        setCommentError("Deleting the comment failed.");
       });
   };
 
   if (isLoading) {
-    return <p className="loading">Chargement...</p>;
+    return <p className="loading">Loading...</p>;
   }
 
   if (errorMessage) {
@@ -121,7 +121,7 @@ function TierListDetailPage() {
       <div className="page">
         <p className="error-message">{errorMessage}</p>
         <Link to="/" className="btn btn-secondary">
-          Retour à l'accueil
+          Back to home
         </Link>
       </div>
     );
@@ -140,7 +140,7 @@ function TierListDetailPage() {
 
   const unrankedItems = tierList.items.filter((item) => item.tier === "unranked");
 
-  const date = new Date(tierList.createdAt).toLocaleDateString("fr-FR");
+  const date = new Date(tierList.createdAt).toLocaleDateString("en-US");
 
   return (
     <div className="page">
@@ -149,9 +149,9 @@ function TierListDetailPage() {
           <h1>{tierList.title}</h1>
           {tierList.description && <p className="detail-description">{tierList.description}</p>}
           <p className="detail-meta">
-            par <Link to={"/users/" + tierList.owner._id}>{tierList.owner.name}</Link> · {date} ·{" "}
-            {tierList.items.length} jeux
-            {!tierList.isPublic && <span className="badge badge-private">Privée</span>}
+            by <Link to={"/users/" + tierList.owner._id}>{tierList.owner.name}</Link> · {date} ·{" "}
+            {tierList.items.length} games
+            {!tierList.isPublic && <span className="badge badge-private">Private</span>}
           </p>
         </div>
 
@@ -161,10 +161,10 @@ function TierListDetailPage() {
           {canEdit && (
             <div className="form-actions">
               <Link to={"/tierlists/" + tierList._id + "/edit"} className="btn btn-secondary btn-small">
-                Modifier
+                Edit
               </Link>
               <button type="button" className="btn btn-danger btn-small" onClick={handleDeleteTierList}>
-                Supprimer
+                Delete
               </button>
             </div>
           )}
@@ -195,12 +195,12 @@ function TierListDetailPage() {
       </section>
 
       <section className="comments-section">
-        <h2>Commentaires ({comments.length})</h2>
+        <h2>Comments ({comments.length})</h2>
 
         {isLoggedIn && (
           <form onSubmit={handleAddComment} className="comment-form">
             <textarea
-              placeholder="Ton avis sur ce classement..."
+              placeholder="Your opinion on this ranking..."
               value={newComment}
               onChange={(e) => setNewComment(e.target.value)}
               maxLength={500}
@@ -210,7 +210,7 @@ function TierListDetailPage() {
             <div className="comment-form-footer">
               <span className="char-count">{newComment.length} / 500</span>
               <button type="submit" className="btn btn-primary btn-small">
-                Publier
+                Post
               </button>
             </div>
           </form>
@@ -218,13 +218,13 @@ function TierListDetailPage() {
 
         {!isLoggedIn && (
           <p className="empty-state">
-            <Link to="/login">Connecte-toi</Link> pour laisser un commentaire.
+            <Link to="/login">Log in</Link> to leave a comment.
           </p>
         )}
 
         {commentError && <p className="error-message">{commentError}</p>}
 
-        {comments.length === 0 && <p className="empty-state">Pas encore de commentaire.</p>}
+        {comments.length === 0 && <p className="empty-state">No comments yet.</p>}
 
         {comments.map((comment) => {
           return (

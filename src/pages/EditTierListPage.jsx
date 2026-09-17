@@ -57,7 +57,7 @@ function EditTierListPage() {
         if (error.response && error.response.data.message) {
           setErrorMessage(error.response.data.message);
         } else {
-          setErrorMessage("Impossible de charger cette tier list.");
+          setErrorMessage("Could not load this tier list.");
         }
         setIsLoading(false);
       });
@@ -84,7 +84,7 @@ function EditTierListPage() {
         if (error.response && error.response.data.message) {
           setSearchError(error.response.data.message);
         } else {
-          setSearchError("La recherche a échoué.");
+          setSearchError("The search failed.");
         }
         setIsSearching(false);
       });
@@ -103,7 +103,7 @@ function EditTierListPage() {
         if (error.response && error.response.data.message) {
           setErrorMessage(error.response.data.message);
         } else {
-          setErrorMessage("Impossible d'ajouter ce jeu.");
+          setErrorMessage("Could not add this game.");
         }
       });
   };
@@ -125,7 +125,7 @@ function EditTierListPage() {
         if (error.response && error.response.data.message) {
           setErrorMessage(error.response.data.message);
         } else {
-          setErrorMessage("Impossible de changer le rang.");
+          setErrorMessage("Could not change the rank.");
         }
       });
   };
@@ -142,7 +142,7 @@ function EditTierListPage() {
         if (error.response && error.response.data.message) {
           setErrorMessage(error.response.data.message);
         } else {
-          setErrorMessage("Impossible de retirer ce jeu.");
+          setErrorMessage("Could not remove this game.");
         }
       });
   };
@@ -193,7 +193,7 @@ function EditTierListPage() {
       })
       .catch((error) => {
         console.log(error);
-        setErrorMessage("Le déplacement a échoué.");
+        setErrorMessage("Moving the game failed.");
       });
   };
 
@@ -256,12 +256,12 @@ function EditTierListPage() {
   };
 
   const handleAddTier = () => {
-    setTiers([...tiers, { label: "Nouveau", color: "#cccccc" }]);
+    setTiers([...tiers, { label: "New", color: "#cccccc" }]);
   };
 
   const handleRemoveTier = (index) => {
     if (tiers.length <= 2) {
-      setSettingsMessage("Il faut au moins deux rangs.");
+      setSettingsMessage("You need at least two ranks.");
       return;
     }
     const remainingTiers = tiers.filter((tier, i) => i !== index);
@@ -276,11 +276,11 @@ function EditTierListPage() {
     for (let i = 0; i < tiers.length; i++) {
       const label = tiers[i].label.trim();
       if (label === "") {
-        setSettingsMessage("Chaque rang doit avoir un nom.");
+        setSettingsMessage("Each rank needs a name.");
         return;
       }
       if (labels.includes(label)) {
-        setSettingsMessage("Deux rangs ne peuvent pas avoir le même nom.");
+        setSettingsMessage("Two ranks cannot have the same name.");
         return;
       }
       labels.push(label);
@@ -300,13 +300,13 @@ function EditTierListPage() {
         });
         setItems(updatedItems);
 
-        setSettingsMessage("Modifications enregistrées.");
+        setSettingsMessage("Changes saved.");
       })
       .catch((error) => {
         if (error.response && error.response.data.message) {
           setSettingsMessage(error.response.data.message);
         } else {
-          setSettingsMessage("L'enregistrement a échoué.");
+          setSettingsMessage("Saving failed.");
         }
       });
   };
@@ -314,7 +314,7 @@ function EditTierListPage() {
   // ---------- Affichage ----------
 
   if (isLoading) {
-    return <p className="loading">Chargement...</p>;
+    return <p className="loading">Loading...</p>;
   }
 
   if (errorMessage && !tierList) {
@@ -322,7 +322,7 @@ function EditTierListPage() {
       <div className="page">
         <p className="error-message">{errorMessage}</p>
         <Link to="/" className="btn btn-secondary">
-          Retour à l'accueil
+          Back to home
         </Link>
       </div>
     );
@@ -355,7 +355,7 @@ function EditTierListPage() {
       <header className="detail-header">
         <div>
           <h1>{tierList.title}</h1>
-          <p className="detail-meta">Éditeur · {items.length} jeux</p>
+          <p className="detail-meta">Editor · {items.length} games</p>
         </div>
 
         <div className="form-actions">
@@ -364,10 +364,10 @@ function EditTierListPage() {
             className="btn btn-secondary btn-small"
             onClick={() => setShowSettings(!showSettings)}
           >
-            {showSettings ? "Fermer les paramètres" : "Paramètres"}
+            {showSettings ? "Close settings" : "Settings"}
           </button>
           <Link to={"/tierlists/" + id} className="btn btn-primary btn-small">
-            Voir la tier list
+            View the tier list
           </Link>
         </div>
       </header>
@@ -375,7 +375,7 @@ function EditTierListPage() {
       {showSettings && (
         <form onSubmit={handleSaveSettings} className="form settings-form">
           <label>
-            Titre
+            Title
             <input
               type="text"
               value={title}
@@ -397,11 +397,11 @@ function EditTierListPage() {
 
           <label className="checkbox-label">
             <input type="checkbox" checked={isPublic} onChange={(e) => setIsPublic(e.target.checked)} />
-            Tier list publique
+            Public tier list
           </label>
 
           <fieldset className="tiers-editor">
-            <legend>Les rangs</legend>
+            <legend>Ranks</legend>
 
             {tiers.map((tier, index) => {
               return (
@@ -410,7 +410,7 @@ function EditTierListPage() {
                     type="color"
                     value={tier.color}
                     onChange={(e) => handleTierColorChange(index, e.target.value)}
-                    title="Couleur du rang"
+                    title="Rank color"
                   />
                   <input
                     type="text"
@@ -423,7 +423,7 @@ function EditTierListPage() {
                     type="button"
                     className="btn-icon btn-icon-danger"
                     onClick={() => handleRemoveTier(index)}
-                    title="Supprimer ce rang"
+                    title="Delete this rank"
                   >
                     ✕
                   </button>
@@ -432,14 +432,14 @@ function EditTierListPage() {
             })}
 
             <button type="button" className="btn btn-secondary btn-small" onClick={handleAddTier}>
-              + Ajouter un rang
+              + Add a rank
             </button>
           </fieldset>
 
           {settingsMessage && <p className="info-message">{settingsMessage}</p>}
 
           <button type="submit" className="btn btn-primary">
-            Enregistrer
+            Save
           </button>
         </form>
       )}
@@ -484,14 +484,14 @@ function EditTierListPage() {
           </DndContext>
 
           <p className="hint">
-            Les jeux ajoutés arrivent dans la ligne « ? » (non classés). Attrape un jeu par son
-            image et dépose-le sur une ligne pour le classer, ou utilise le menu déroulant sous
-            chaque jeu. Les flèches changent l'ordre dans une ligne.
+            Added games land in the "?" row (unranked). Grab a game by its picture and drop it on
+            a row to rank it, or use the menu under each game. The arrows change the order
+            inside a row.
           </p>
         </section>
 
         <aside className="editor-search">
-          <h2>Ajouter des jeux</h2>
+          <h2>Add games</h2>
 
           <form onSubmit={handleSearch} className="search-form">
             <input
@@ -501,14 +501,14 @@ function EditTierListPage() {
               onChange={(e) => setQuery(e.target.value)}
             />
             <button type="submit" className="btn btn-secondary" disabled={isSearching}>
-              {isSearching ? "..." : "Chercher"}
+              {isSearching ? "..." : "Search"}
             </button>
           </form>
 
           {searchError && <p className="error-message">{searchError}</p>}
 
           {!isSearching && searchResults.length === 0 && !searchError && (
-            <p className="empty-state">Cherche un jeu pour l'ajouter à ta liste.</p>
+            <p className="empty-state">Search a game to add it to your list.</p>
           )}
 
           <div className="game-results">

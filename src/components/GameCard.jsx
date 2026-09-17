@@ -13,7 +13,7 @@ function GameCard(props) {
       {game.image ? (
         <img src={game.image} alt={game.name} className="game-card-image" />
       ) : (
-        <div className="game-card-image game-no-image">Pas d'image</div>
+        <div className="game-card-image game-no-image">No image</div>
       )}
 
       <div className="game-card-body">
@@ -30,7 +30,7 @@ function GameCard(props) {
         onClick={() => props.onAdd(game)}
         disabled={alreadyAdded}
       >
-        {alreadyAdded ? "Ajouté" : "Ajouter"}
+        {alreadyAdded ? "Added" : "Add"}
       </button>
     </div>
   );

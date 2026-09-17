@@ -7,7 +7,7 @@ function IsAnon(props) {
   const { isLoggedIn, isLoading } = useContext(AuthContext);
 
   if (isLoading) {
-    return <p className="loading">Chargement...</p>;
+    return <p className="loading">Loading...</p>;
   }
 
   if (isLoggedIn) {

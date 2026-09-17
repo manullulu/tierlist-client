@@ -13,38 +13,38 @@ function Navbar() {
 
       <div className="navbar-links">
         <NavLink to="/" className="navbar-link">
-          Accueil
+          Home
         </NavLink>
 
         {isLoggedIn && (
           <NavLink to="/create" className="navbar-link">
-            Créer
+            Create
           </NavLink>
         )}
 
         {isLoggedIn && (
           <NavLink to="/profile" className="navbar-link">
-            Mon profil
+            My profile
           </NavLink>
         )}
 
         {isLoggedIn && (
           <button className="btn btn-secondary btn-small" onClick={logOutUser}>
-            Déconnexion
+            Log out
           </button>
         )}
 
-        {isLoggedIn && user && <span className="navbar-user">Bonjour, {user.name}</span>}
+        {isLoggedIn && user && <span className="navbar-user">Hi, {user.name}</span>}
 
         {!isLoggedIn && (
           <NavLink to="/login" className="navbar-link">
-            Connexion
+            Log in
           </NavLink>
         )}
 
         {!isLoggedIn && (
           <NavLink to="/signup" className="btn btn-primary btn-small">
-            Inscription
+            Sign up
           </NavLink>
         )}
       </div>

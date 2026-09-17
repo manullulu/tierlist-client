@@ -46,9 +46,9 @@ function GameTile(props) {
         <select
           value={item.tier}
           onChange={(e) => props.onChangeTier(item._id, e.target.value)}
-          aria-label={"Rang de " + item.gameName}
+          aria-label={"Rank of " + item.gameName}
         >
-          <option value="unranked">Non classé</option>
+          <option value="unranked">Unranked</option>
           {tiers.map((tier) => {
             return (
               <option key={tier.label} value={tier.label}>
@@ -64,7 +64,7 @@ function GameTile(props) {
             className="btn-icon"
             onClick={() => props.onMoveLeft(item._id)}
             disabled={isFirst}
-            title="Déplacer à gauche"
+            title="Move left"
           >
             ◀
           </button>
@@ -73,7 +73,7 @@ function GameTile(props) {
             className="btn-icon"
             onClick={() => props.onMoveRight(item._id)}
             disabled={isLast}
-            title="Déplacer à droite"
+            title="Move right"
           >
             ▶
           </button>
@@ -81,7 +81,7 @@ function GameTile(props) {
             type="button"
             className="btn-icon btn-icon-danger"
             onClick={() => props.onRemove(item._id)}
-            title="Retirer de la liste"
+            title="Remove from the list"
           >
             ✕
           </button>

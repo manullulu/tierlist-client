@@ -24,13 +24,13 @@ function ProfilePage() {
       })
       .catch((error) => {
         console.log(error);
-        setErrorMessage("Impossible de charger tes tier lists.");
+        setErrorMessage("Could not load your tier lists.");
         setIsLoading(false);
       });
   }, [user]);
 
   const handleDelete = (tierListId) => {
-    const confirmed = window.confirm("Supprimer définitivement cette tier list ?");
+    const confirmed = window.confirm("Delete this tier list permanently?");
     if (!confirmed) {
       return;
     }
@@ -42,12 +42,12 @@ function ProfilePage() {
       })
       .catch((error) => {
         console.log(error);
-        setErrorMessage("La suppression a échoué.");
+        setErrorMessage("Deleting failed.");
       });
   };
 
   if (!user) {
-    return <p className="loading">Chargement...</p>;
+    return <p className="loading">Loading...</p>;
   }
 
   return (
@@ -68,19 +68,19 @@ function ProfilePage() {
         </div>
 
         <Link to="/create" className="btn btn-primary">
-          + Nouvelle tier list
+          + New tier list
         </Link>
       </header>
 
-      <h2>Mes tier lists ({tierLists.length})</h2>
+      <h2>My tier lists ({tierLists.length})</h2>
 
-      {isLoading && <p className="loading">Chargement...</p>}
+      {isLoading && <p className="loading">Loading...</p>}
 
       {errorMessage && <p className="error-message">{errorMessage}</p>}
 
       {!isLoading && tierLists.length === 0 && (
         <p className="empty-state">
-          Tu n'as pas encore de tier list. <Link to="/create">Crée la première !</Link>
+          You don't have any tier list yet. <Link to="/create">Create the first one!</Link>
         </p>
       )}
 
@@ -92,14 +92,14 @@ function ProfilePage() {
 
               <div className="tierlist-card-actions">
                 <Link to={"/tierlists/" + tierList._id + "/edit"} className="btn btn-secondary btn-small">
-                  Modifier
+                  Edit
                 </Link>
                 <button
                   type="button"
                   className="btn btn-danger btn-small"
                   onClick={() => handleDelete(tierList._id)}
                 >
-                  Supprimer
+                  Delete
                 </button>
               </div>
             </div>
