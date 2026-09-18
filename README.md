@@ -1,7 +1,7 @@
 # TierList - Front React (tierlist-client)
 
 Interface du projet **TierList** : créer, partager, voter et commenter des classements de jeux vidéo.
-Stack : React 19, Vite, React Router, Axios, dnd-kit. CSS pur, sans framework.
+Stack : React 19, Vite, React Router, Axios, dnd-kit, react-spinners. CSS pur, sans framework.
 
 L'API est dans le repo `tierlist-server`.
 
