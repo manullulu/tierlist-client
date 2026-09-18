@@ -142,9 +142,18 @@ button {
 }
 
 .navbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
   font-weight: 700;
   font-size: 1.15rem;
   color: var(--text);
+}
+
+.navbar-logo-image {
+  width: 30px;
+  height: 30px;
+  border-radius: 6px;
 }
 
 .navbar-logo:hover {
@@ -400,9 +409,20 @@ select:focus {
    ========================================================== */
 
 .hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
   padding: 0.5rem 0 1.5rem;
   border-bottom: 1px solid var(--border);
   margin-bottom: 1.25rem;
+}
+
+.hero-image {
+  width: 220px;
+  height: 220px;
+  border-radius: 12px;
+  flex-shrink: 0;
 }
 
 .hero p {
@@ -1018,6 +1038,16 @@ select:focus {
   .navbar {
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  .hero {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .hero-image {
+    width: 160px;
+    height: 160px;
   }
 
   .page {

@@ -40,14 +40,18 @@ function HomePage() {
   return (
     <div className="page">
       <section className="hero">
-        <h1>Rank your favorite video games</h1>
-        <p>
-          Create your tier list, place your games from S to F, share it and vote for the
-          rankings of other players.
-        </p>
-        <Link to="/create" className="btn btn-primary">
-          Create my tier list
-        </Link>
+        <div className="hero-text">
+          <h1>Rank your favorite video games</h1>
+          <p>
+            Create your tier list, place your games from S to F, share it and vote for the
+            rankings of other players.
+          </p>
+          <Link to="/create" className="btn btn-primary">
+            Create my tier list
+          </Link>
+        </div>
+
+        <img src="/illustration.jpg" alt="TierList logo on a phone screen" className="hero-image" />
       </section>
 
       <section className="toolbar">

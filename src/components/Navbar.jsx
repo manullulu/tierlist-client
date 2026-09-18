@@ -8,6 +8,7 @@ function Navbar() {
   return (
     <nav className="navbar">
       <Link to="/" className="navbar-logo">
+        <img src="/logo.png" alt="" className="navbar-logo-image" />
         TierList
       </Link>
 
